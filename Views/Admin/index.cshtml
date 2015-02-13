@@ -1,0 +1,94 @@
+﻿
+@model  IEnumerable<_24hours.Models.Product>
+
+@{
+
+   Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+
+
+
+   
+    <meta name="viewport" content="width=device-width" />
+
+   
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+
+            $.ajaxSetup({ cache: false });
+
+
+
+            $(".createActor").live("click", function (e) {
+
+                var $url = $(this).attr('href');
+
+                var $title = $(this).attr('title');
+
+
+
+                var $dialog = $('<div id="modalDialog"></div>');
+
+                $dialog.empty();
+
+                $dialog.load($url).dialog({
+
+                    autoOpen: false,
+
+                    title: $title,
+
+                    resizable: false,
+
+                    height: 300,
+
+                    width: 380,
+
+                    show: { effect: 'drop', direction: "up" },
+
+                    modal: true,
+
+                    draggable: true
+
+                });
+
+                $dialog.dialog('open');
+
+                return false;
+
+            });
+
+
+
+            $("#btncancel").live("click", function (e) {
+
+                $("#modalDialog").dialog('close');
+
+            });
+
+        });
+
+    </script>
+
+
+
+<br />
+<br />
+<br />
+    <h2 style="padding-right:200px">Admin</h2>
+    <div id="actorList">
+
+        @Html.Partial("../Admin/Add")
+
+    </div>
+
+<br />
+<br />
+<br />
+<br />
+

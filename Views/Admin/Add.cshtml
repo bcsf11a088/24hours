@@ -1,0 +1,84 @@
+﻿@model  IEnumerable<_24hours.Models.Product>
+@{
+
+    ViewBag.Title = "Add product";
+   
+}
+
+
+
+
+<p>
+
+    @Html.ActionLink("Create New", "Create", null, new { @class = "Addproduct", title = "Add Product" })
+
+</p>
+
+<table style=" border: 3px solid black; column-gap ="20">
+
+    <tr>
+
+        <th>
+
+            @Html.DisplayNameFor(model => model.Name) <&nbsp>
+
+        </th>
+
+        <th>
+
+            @Html.DisplayNameFor(model => model.Description)<&nbsp>
+
+        </th>
+
+        <th>
+
+            @Html.DisplayNameFor(model => model.Image)
+
+        </th>
+
+        <th>
+
+        </th>
+
+    </tr>
+
+    @foreach (var i in Model)
+    {
+
+        <tr>
+
+            <td valign="top">
+
+                @Html.DisplayFor(ModelItem => i.Name)
+
+            </td>
+
+            <td valign="top">
+
+                @Html.DisplayFor(ModelItem => i.Description)
+
+            </td>
+
+            <td valign="top">
+
+                <img src="@Url.Content("~/images/" + i.Image + "")" alt="@i.Name" width="100px" height="100px" />
+
+            </td>
+
+            <td valign="top">
+
+                @Html.ActionLink("Edit", "Edit", new { id = i.Pid }, new { @class = "Add Product", title = "Edit Product" })
+
+                |
+
+                @Html.ActionLink("Delete", "Delete", new { id = i.Pid })
+
+            </td>
+
+        </tr>
+
+    }
+
+</table>
+
+
